@@ -76,6 +76,7 @@ Game.prototype.startGame = function (){
   this.drawscreen();
   this.player.Keys();
   this.player.colisions();
+  this.coin.drawLetter();
   
  }.bind(this), 1000/frames);
 }

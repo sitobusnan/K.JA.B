@@ -15,7 +15,7 @@ function Player(game) {
     keyLeft: false,
     keyRight: false
   };
-  this.payerTarjet = 0;
+  this.playerTarjet = 0;
   
   this.imageplayer = new Image();
   this.imageplayer.src = "./imagenes/player1.png";
@@ -24,7 +24,7 @@ function Player(game) {
 
 Player.prototype.drawPlayer = function() {
   this.game.ctx.drawImage(this.imageplayer, this.xPlayer, this.yPlayer, this.wPlayer, this.hPlayer);
-  
+  console.log(this.playerTarjet)
 };
 
 Player.prototype.Keys = function() {
@@ -99,11 +99,18 @@ Player.prototype.Keys = function() {
 };
 
 Player.prototype.colisions = function (){
-  if(this.xPlayer > this.game.xCanvasMax -60){
-    this.playerTarjet = 1;
-  }
+  
   if(this.xPlayer < 1 && this.playerTarjet === 1){
     console.log(this.playerTarjet)
     this.game.stop();
+  }
+  if (
+    this.xPlayer < this.game.coin.xLetter+this.game.coin.wLetter && 
+    this.game.coin.xLetter < this.xPlayer+this.wPlayer/2 &&
+    this.yPlayer < this.game.coin.yLetter+this.game.coin.hLetter && 
+    this.game.coin.hLetter < this.yPlayer+this.hPlayer/2
+  ){
+    this.playerTarjet = 1;
+
   }
 }
