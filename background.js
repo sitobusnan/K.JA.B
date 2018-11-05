@@ -1,9 +1,10 @@
 function Background(game){
   this.game = game;
-  var img = new Image();
-  img.src = "./imagenes/background1.jpg";
+  this.img = new Image();
+  this.img.src = "./imagenes/background1.jpg";
 }
 
 Background.prototype.drawBack = function (){
-  this.ctx.drawImage(img,0,0);
+  this.game.ctx.drawImage(this.img,0,0,700,500);
+  
 }

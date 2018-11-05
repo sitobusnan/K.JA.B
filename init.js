@@ -1,12 +1,14 @@
 window.onload = function() {
-  document.getElementsByClassName("btn").onclick = function() {
+  document.getElementById("btn").onclick = function() {
+    
     startGame();
   };
 
-  var game = new Game("kjav");
+  var game = new Game("kjab");
  
 
-  function startGame(ctx){
-    game.start();
+  function startGame(){
+    
+    game.startStage();
   }
 };
