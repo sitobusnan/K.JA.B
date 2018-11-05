@@ -7,6 +7,42 @@ function Game(canvasId){
   this.enemy = new Enemy(this);
   this.stage = new Stage(this);
   this.intervalStage = function(){}
+
+
+
+  document.addEventListener('keydown', function (e) {
+    //   lastDownTarget = event.target;
+      if (e.keyCode === 37) {
+          
+          this.player.keysState.keyLeft = true;
+          
+      }
+      if (e.keyCode === 38) {
+          this.player.keysState.keyUp = true;
+      }
+      if (e.keyCode === 39) {
+          this.player.keysState.keyRight = true;
+      }
+      if (e.keyCode === 40) {
+          this.player.keysState.keyDown = true;
+      }
+    }.bind(this));
+    
+    document.addEventListener('keyup', function (e) {
+      //   lastDownTarget = event.target;
+        if (e.keyCode === 37) {
+            this.player.keysState.keyLeft = false;
+        }
+        if (e.keyCode === 38) {
+            this.player.keysState.keyUp = false;
+        }
+        if (e.keyCode === 39) {
+            this.player.keysState.keyRight = false;
+        }
+        if (e.keyCode === 40) {
+            this.player.keysState.keyDown = false;
+        }
+      }.bind(this));
   
 }
 
@@ -49,3 +85,4 @@ Game.prototype.drawscreen = function(){
 Game.prototype.stop = function (){
   clearInterval(this.intervalId);
 }
+
