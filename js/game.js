@@ -2,8 +2,8 @@ function Game(canvasId){
   this.canvas = document.getElementById(canvasId);
   this.ctx = this.canvas.getContext("2d");
   this.frames = 60;
-  this.xCanvasMax = 700;
-  this.yCanvasMax = 500;
+  this.xCanvasMax = 900;
+  this.yCanvasMax = 600;
   this.backGround = new Background(this);
   this.player = new Player(this);
   this.enemy = new Enemy(this);
@@ -59,7 +59,7 @@ Game.prototype.startStage = function(){
   // }.bind(this), 1000/frames)
 
     this.clearscreen();
-    this.backGround.drawBack();
+    
     this.stage.drawStage();
 
     window.onkeypress = function () {
@@ -76,13 +76,13 @@ Game.prototype.startGame = function (){
   this.drawscreen();
   this.player.Keys();
   this.player.colisions();
-  this.coin.drawLetter();
+  this.coin.drawCoins();
   
  }.bind(this), 1000/frames);
 }
 
 Game.prototype.clearscreen = function(){
-  this.ctx.clearRect(0,0,700,500);
+  this.ctx.clearRect(0,0,this.xCanvasMax,this.yCanvasMax);
 } 
 
 Game.prototype.drawscreen = function(){

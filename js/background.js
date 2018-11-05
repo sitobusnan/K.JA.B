@@ -5,6 +5,6 @@ function Background(game){
 }
 
 Background.prototype.drawBack = function (){
-  this.game.ctx.drawImage(this.img,0,0,700,500);
+  this.game.ctx.drawImage(this.img,0,0,this.game.xCanvasMax,this.game.yCanvasMax);
   
 }
