@@ -36,7 +36,7 @@ Coins.prototype.drawCoins = function(){
     this.game.ctx.drawImage(this.letter, this.xLetter, this.yLetter);
     
   }
-  if(this.countActa === 0 && this.game.enemy.moduleCounter % 1000 === 0){
+  if(this.countActa === 0 && this.game.enemy.moduleCounter % 10000 === 0){
     
     this.countActa++;
   }
@@ -45,7 +45,7 @@ Coins.prototype.drawCoins = function(){
   }
 }
 Coins.prototype.drawAlbanil = function (){
-  console.log(this.countActa)
+  
   if(this.game.coin.countActa > 1 && this.game.enemy.yEnemy > 500){
     
     this.game.ctx.drawImage(this.albanil, this.xAlbanil,this.yAlbanil)

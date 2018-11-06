@@ -9,6 +9,9 @@ function Game(canvasId){
   this.enemy = new Enemy(this);
   this.stage = new Stage(this);
   this.coin = new Coins(this);
+  this.scores = [new Score(this)];
+  this.scoresCount = 0;
+  this.globalScore = 0;
   
 
 
@@ -78,6 +81,13 @@ Game.prototype.startGame = function (){
   this.player.colisions();
   this.coin.drawCoins();
   this.coin.drawAlbanil();
+  
+  this.scores.forEach(function(element) { element.drawScore(); });
+  
+  if (this.enemy.moduleCounter % 3000 === 0 && this.scoresCount < 15){
+    this.scores.push(new Score(this));
+    this.scoresCount ++;
+  }
   
  }.bind(this), 1000/frames);
 }

@@ -138,7 +138,18 @@ Player.prototype.colisions = function (){
   ){
     this.game.enemy.enemyTarjet = 1;
     this.game.coin.countActa++;
-    
   }
 
-}
+  // COLISION MONEY
+  this.game.scores.forEach(function(element){
+    if (this.xPlayer < element.xScore + element.wScore && 
+      element.xScore < this.xPlayer + this.wPlayer/2 &&
+      this.yPlayer < element.yScore + element.hScore && 
+      element.yScore < this.yPlayer + this.hPlayer/2
+    ){
+      this.game.globalScore += element.scoreValue;
+      return this.game.scores.splice(element, 1);
+
+    }
+  }.bind(this));
+} 
