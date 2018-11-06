@@ -13,6 +13,7 @@ function Game(canvasId){
   this.scoresCount = 0;
   this.globalScore = 0;
   this.marcador = document.getElementById("score");
+  this.backGroundControl = 0;
 
 
 
@@ -62,14 +63,21 @@ Game.prototype.startStage = function(){
   // }.bind(this), 1000/frames)
 
     this.clearscreen();
-    
     this.stage.drawStage();
+
+    window.onkeydown = function (e) {
+      if(e.keyCode == 32){
+        this.backGround.this.img.src = "./imagenes/instrucciones1.png";
+        this.clearscreen();
+        this.stage.drawStage();
+      }
+      
+    }.bind(this)
 
     window.onkeydown = function (e) {
       if(e.keyCode == 32){
         this.startGame();
       }
-      
     }.bind(this)
   
   
@@ -115,6 +123,6 @@ Game.prototype.stop = function (){
 }
 
 Game.prototype.scoreBoard = function(){
-  this.marcador.innerHTML = `${this.globalScore}`;
+  this.marcador.innerHTML = ` ${this.globalScore} €`;
 }
 

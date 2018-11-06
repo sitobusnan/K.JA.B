@@ -24,8 +24,10 @@ body{
 #marcador{
   margin: 10px auto;
   color: black;
-  font-size: 3rem;
-  font-weight: 700
+  font-size: 2rem;
+  font-weight: 700;
+  width: 800px;
+  display: flex;
 }
 
 .canv{
