@@ -16,5 +16,5 @@ function Score (game){
 }
 Score.prototype.drawScore = function(){
   
-  this.game.ctx.drawImage(this.moneyImg, this.xScore, this.yScore)
+  this.game.ctx.drawImage(this.moneyImg, this.xScore, this.yScore);
 }

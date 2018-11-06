@@ -12,12 +12,12 @@ function Game(canvasId){
   this.scores = [new Score(this)];
   this.scoresCount = 0;
   this.globalScore = 0;
-  
+  this.marcador = document.getElementById("score");
 
 
 
   document.addEventListener('keydown', function (e) {
-    
+      e.preventDefault();
       if (e.keyCode === 37) {
           this.player.keysState.keyLeft = true;
       }
@@ -65,8 +65,11 @@ Game.prototype.startStage = function(){
     
     this.stage.drawStage();
 
-    window.onkeypress = function () {
-      this.startGame();
+    window.onkeydown = function (e) {
+      if(e.keyCode == 32){
+        this.startGame();
+      }
+      
     }.bind(this)
   
   
@@ -81,10 +84,12 @@ Game.prototype.startGame = function (){
   this.player.colisions();
   this.coin.drawCoins();
   this.coin.drawAlbanil();
+  this.scoreBoard();
+  
   
   this.scores.forEach(function(element) { element.drawScore(); });
   
-  if (this.enemy.moduleCounter % 3000 === 0 && this.scoresCount < 15){
+  if (this.enemy.moduleCounter % 2500 === 0 && this.scoresCount < 15){
     this.scores.push(new Score(this));
     this.scoresCount ++;
   }
@@ -107,5 +112,9 @@ Game.prototype.drawscreen = function(){
 
 Game.prototype.stop = function (){
   clearInterval(this.intervalId);
+}
+
+Game.prototype.scoreBoard = function(){
+  this.marcador.innerHTML = `${this.globalScore}`;
 }
 

@@ -2,6 +2,16 @@
   box-sizing: border-box;
   display: block;
 }
+body{
+  background-color: #dbdbdb;
+}
+
+.logo{
+  width: 500px;
+  height: 200px;
+  margin: 5px auto;
+  background-image: url("./../imagenes/photoshop/background1/LOGO.jpg")
+}
 
 #btn{
   width: 100px;
@@ -9,6 +19,13 @@
   color: white;
   background-color: black;
   margin: 50px auto;
+}
+
+#marcador{
+  margin: 10px auto;
+  color: black;
+  font-size: 3rem;
+  font-weight: 700
 }
 
 .canv{

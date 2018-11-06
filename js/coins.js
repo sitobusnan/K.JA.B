@@ -36,7 +36,7 @@ Coins.prototype.drawCoins = function(){
     this.game.ctx.drawImage(this.letter, this.xLetter, this.yLetter);
     
   }
-  if(this.countActa === 0 && this.game.enemy.moduleCounter % 10000 === 0){
+  if(this.countActa === 0 && this.game.globalScore > 1500000){
     
     this.countActa++;
   }

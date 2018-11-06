@@ -28,6 +28,8 @@ Player.prototype.drawPlayer = function() {
 };
 
 Player.prototype.Keys = function() {
+  
+  
   if(this.keysState.keyUp == true && this.keysState.keyLeft == true){
     this.imageplayer.src = "./imagenes/player5.png"
     if(this.xPlayer > this.xLimitLeft){
