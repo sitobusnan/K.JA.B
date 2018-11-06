@@ -65,17 +65,22 @@ Game.prototype.startStage = function(){
     this.clearscreen();
     this.stage.drawStage();
 
-    window.onkeydown = function (e) {
-      if(e.keyCode == 32){
-        this.backGround.this.img.src = "./imagenes/instrucciones1.png";
-        this.clearscreen();
-        this.stage.drawStage();
-      }
-      
-    }.bind(this)
+    
 
     window.onkeydown = function (e) {
-      if(e.keyCode == 32){
+      console.log(e.keyCode)
+      if(e.keyCode === 73){
+        this.stage.imgStage.src = "./imagenes/instrucciones1.png";
+        this.clearscreen();
+        this.stage.drawStage(this);
+      }
+      if(e.keyCode === 85){
+        console.log(e.keyCode)
+        this.stage.imgStage.src = "./imagenes/STAGE1.png";
+        this.clearscreen();
+        this.stage.drawStage(this);
+      }
+      if(e.keyCode === 32){
         this.startGame();
       }
     }.bind(this)
@@ -83,9 +88,7 @@ Game.prototype.startStage = function(){
   
 }
 
-
-Game.prototype.startGame = function (){
-  this.intervalId = setInterval(function(){
+Game.prototype.stopStart = function (){
   this.clearscreen();
   this.drawscreen();
   this.player.Keys();
@@ -101,8 +104,11 @@ Game.prototype.startGame = function (){
     this.scores.push(new Score(this));
     this.scoresCount ++;
   }
-  
- }.bind(this), 1000/frames);
+}
+
+
+Game.prototype.startGame = function (){
+  this.intervalId = setInterval(this.stopStart.bind(this),1000/frames);
 }
 
 Game.prototype.clearscreen = function(){

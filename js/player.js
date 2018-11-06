@@ -103,7 +103,7 @@ Player.prototype.Keys = function() {
 Player.prototype.colisions = function (){
   
   // CONDICION DE VICTORIA
-  if(this.xPlayer < 1 && this.playerTarjet === 1){
+  if(this.xPlayer < 1 && this.yPlayer < 100 && this.playerTarjet === 1){
     
     this.game.stop();
   }
