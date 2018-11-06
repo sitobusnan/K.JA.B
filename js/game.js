@@ -77,6 +77,7 @@ Game.prototype.startGame = function (){
   this.player.Keys();
   this.player.colisions();
   this.coin.drawCoins();
+  this.coin.drawAlbanil();
   
  }.bind(this), 1000/frames);
 }

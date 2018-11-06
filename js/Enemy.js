@@ -10,6 +10,8 @@ function Enemy(game) {
 
   this.imgEnemy = new Image();
   this.imgEnemy.src = "./imagenes/enemy3.png";
+
+  if(this.moduleCounter === 10000){this.moduleCounter = 500;}
 }
 
 Enemy.prototype.drawEnemy = function() {
@@ -81,6 +83,15 @@ Enemy.prototype.enemyMove = function() {
           this.imgEnemy.src = "./imagenes/enemy3.png";
           this.yEnemy += this.enemySpeed;
         }
+      }
+    }
+    if(this.enemyTarjet === 1){
+      if(this.yEnemy < this.game.yCanvasMax - this.hEnemy){
+        this.imgEnemy.src = "./imagenes/enemy3.png";
+        this.yEnemy += this.enemySpeed
+      }
+      if(this.yEnemy > this.game.yCanvasMax - this.hEnemy - 1){
+        this.imgEnemy.src = "./imagenes/enemy2.png";
       }
     }
   }

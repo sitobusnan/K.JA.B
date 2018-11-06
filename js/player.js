@@ -1,7 +1,7 @@
 function Player(game) {
   this.game = game;
   this.xPlayer = 0;
-  this.yPlayer = 250;
+  this.yPlayer = 50;
   this.wPlayer = 50;
   this.hPlayer = 50;
   this.playerSpeed = 1;
@@ -117,15 +117,28 @@ Player.prototype.colisions = function (){
   }
 
   // COLISION CON ENEMY
-  if (
-    this.xPlayer < this.game.enemy.xEnemy + this.game.enemy.wEnemy/2 && 
-    this.game.enemy.xEnemy < this.xPlayer + this.wPlayer/2 &&
-    this.yPlayer < this.game.enemy.yEnemy + this.game.enemy.hEnemy/2 && 
-    this.game.enemy.yEnemy < this.yPlayer + this.hPlayer/2
-  ){
-   
-    this.game.stop();
+  if(this.game.enemy.enemyTarjet === 0){
+    if (
+      this.xPlayer < this.game.enemy.xEnemy + this.game.enemy.wEnemy/2 && 
+      this.game.enemy.xEnemy < this.xPlayer + this.wPlayer/2 &&
+      this.yPlayer < this.game.enemy.yEnemy + this.game.enemy.hEnemy/2 && 
+      this.game.enemy.yEnemy < this.yPlayer + this.hPlayer/2
+    ){
+     
+      this.game.stop();
+    }
   }
 
+  // COLISION CON EL ACTA
+  if (this.game.coin.countActa === 1 &&
+    this.xPlayer < this.game.coin.xActa + this.game.coin.wActa && 
+    this.game.coin.xActa < this.xPlayer + this.wPlayer/2 &&
+    this.yPlayer < this.game.coin.yActa + this.game.coin.hActa && 
+    this.game.coin.yActa < this.yPlayer + this.hPlayer/2
+  ){
+    this.game.enemy.enemyTarjet = 1;
+    this.game.coin.countActa++;
+    
+  }
 
 }
