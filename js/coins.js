@@ -85,14 +85,14 @@ Coins.prototype.drawAlbanil = function (){
 
 Coins.prototype.drawPuchi = function (){
   
-  if(this.countBandera > 1 && this.game.guards[1].xGuard > 450 && this.game.guards[1].speedGuard > 0 ){
+  if(this.countBandera > 1 && this.game.guards[1].xGuard > 600 && this.game.guards[1].speedGuard < 0 ){
     this.puchiControl++ 
     
   }
   if(this.puchiControl >= 1){
     this.game.ctx.drawImage(this.puchi, this.xPuchi, this.yPuchi)
     this.xPuchi += this.speedPuchi;
-    if(this.xPuchi > this.game.guards[1].xGuard + 20){
+    if(this.xPuchi > this.game.guards[1].xGuard + 70){
       this.game.guards[1].speedGuard = 1;
       this.game.guards[1].xGuardMax = this.xPuchi;
       
