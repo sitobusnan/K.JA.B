@@ -70,20 +70,25 @@ Game.prototype.startStage = function(){
     
 
     window.onkeydown = function (e) {
-      console.log(e.keyCode)
-      if(e.keyCode === 73){
-        this.stage.imgStage.src = "./imagenes/instrucciones1.png";
-        this.clearscreen();
-        this.stage.drawStage(this);
-      }
-      if(e.keyCode === 85){
-        console.log(e.keyCode)
-        this.stage.imgStage.src = "./imagenes/STAGE1.png";
-        this.clearscreen();
-        this.stage.drawStage(this);
-      }
+      // console.log(e.keyCode)
+      // if(e.keyCode === 73){
+      //   this.stage.imgStage.src = "./imagenes/instrucciones1.png";
+      //   this.clearscreen();
+      //   this.stage.drawStage(this);
+      // }
+      // if(e.keyCode === 85){
+      //   console.log(e.keyCode)
+      //   this.stage.imgStage.src = "./imagenes/STAGE1.png";
+      //   this.clearscreen();
+      //   this.stage.drawStage(this);
+      //}
       if(e.keyCode === 32){
-        this.startGame();
+        this.stage.stageCounter++;
+        this.clearscreen();
+        this.stage.drawStage();
+        if(this.stage.stageCounter === 3){
+          this.startGame();
+        }
       }
     }.bind(this)
   
