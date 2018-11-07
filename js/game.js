@@ -6,11 +6,13 @@ function Game(canvasId){
   this.yCanvasMax = 600;
   this.backGround = new Background(this);
   this.player = new Player(this);
-  this.enemy = new Enemy(this);
+  // this.enemy = new Enemy(this);
   this.stage = new Stage(this);
   this.coin = new Coins(this);
   this.scores = [new Score(this)];
+  // this.guards = [new Guardias(this,200), new Guardias(this,400), new Guardias(this,600)];
   this.scoresCount = 0;
+  this.wins = 0;
   this.globalScore = 0;
   this.marcador = document.getElementById("score");
   this.backGroundControl = 0;
@@ -87,6 +89,12 @@ Game.prototype.startStage = function(){
         this.clearscreen();
         
         if(this.stage.stageCounter === 3){
+          if(this.wins === 0){
+            this.enemy = new Enemy(this);
+          }
+          if(this.wins === 1){
+            this.guards = [new Guardias(this,150), new Guardias(this,350), new Guardias(this,550)];
+          }
           this.startGame();
         }else{
           this.stage.drawStage();
@@ -102,7 +110,6 @@ Game.prototype.stopStart = function (){
   this.drawscreen();
   this.player.Keys();
   this.player.colisions();
-  
   this.scoreBoard();
   
   this.moduleCounter++;
@@ -130,8 +137,20 @@ Game.prototype.drawscreen = function(){
   this.backGround.drawBack();
   this.player.drawPlayer();
   
-  this.enemy.drawEnemy();
-  this.enemy.enemyMove();
+  if(this.wins === 0){
+    this.enemy.drawEnemy();
+    this.enemy.enemyMove();
+  }
+
+  if(this.wins === 1){
+    this.guards.forEach (function(element){
+      
+      
+      element.drawGuard();
+      element.moveGuard();
+    })
+  }
+  
 
   this.coin.drawCoins();
   this.coin.drawAlbanil();

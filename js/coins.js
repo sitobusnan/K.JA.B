@@ -7,7 +7,7 @@ function Coins (game){
   this.wLetter = 43;
   this.hLetter = 50;
   this.yMaxLetter = this.game.yCanvasMax - this.hLetter;
-  this.yMinLetter = 130;
+  this.yMinLetter = 500;
   this.yLetter = Math.floor(Math.random() * (this.yMaxLetter - this.yMinLetter)+ this.yMinLetter );
   this.xLetter = this.game.xCanvasMax - this.wLetter - 3
   this.letter = new Image();

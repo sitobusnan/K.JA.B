@@ -115,6 +115,9 @@ Player.prototype.colisions = function (){
     this.game.enemy.xEnemy = 600;
     this.game.enemy.yEnemy = 400;
     this.playerTarjet = 0;
+    this.game.enemy = [];
+    this.game.wins++;
+    this.scores = [new Score(this)];
   }
 
   // COLISION CON EL SOBRE
@@ -128,25 +131,29 @@ Player.prototype.colisions = function (){
   }
 
   // COLISION CON ENEMY
-  if(this.game.enemy.enemyTarjet === 0){
-    if (
-      this.xPlayer < this.game.enemy.xEnemy + this.game.enemy.wEnemy/2 && 
-      this.game.enemy.xEnemy < this.xPlayer + this.wPlayer/2 &&
-      this.yPlayer < this.game.enemy.yEnemy + this.game.enemy.hEnemy/2 && 
-      this.game.enemy.yEnemy < this.yPlayer + this.hPlayer/2
-    ){
-      this.game.stop();
-      this.game.stage.imgStage.src = "./imagenes/freedom.png";
-      this.game.clearscreen();
-      this.game.stage.drawStage(this);
-      this.game.stage.stageCounter = 2;
-      this.xPlayer = 0;
-      this.yPlayer = 50;
-      this.game.enemy.xEnemy = 600;
-      this.game.enemy.yEnemy = 400;
-      this.playerTarjet = 0;
+  if (this.game.wins === 0){
+    if(this.game.enemy.enemyTarjet === 0){
+      if (
+        this.xPlayer < this.game.enemy.xEnemy + this.game.enemy.wEnemy/2 && 
+        this.game.enemy.xEnemy < this.xPlayer + this.wPlayer/2 &&
+        this.yPlayer < this.game.enemy.yEnemy + this.game.enemy.hEnemy/2 && 
+        this.game.enemy.yEnemy < this.yPlayer + this.hPlayer/2
+      ){
+        this.game.stop();
+        this.game.stage.imgStage.src = "./imagenes/freedom.png";
+        this.game.clearscreen();
+        this.game.stage.drawStage(this);
+        this.game.stage.stageCounter = 2;
+        this.xPlayer = 0;
+        this.yPlayer = 50;
+        this.game.enemy.xEnemy = 600;
+        this.game.enemy.yEnemy = 400;
+        this.playerTarjet = 0;
+      }
     }
   }
+  
+    
 
   // COLISION CON EL ACTA
   if (this.game.coin.countActa === 1 &&
