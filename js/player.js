@@ -106,6 +106,15 @@ Player.prototype.colisions = function (){
   if(this.xPlayer < 1 && this.yPlayer < 100 && this.playerTarjet === 1){
     
     this.game.stop();
+    this.game.stage.stageCounter = 4;
+    this.game.clearscreen();
+    this.game.stage.drawStage();
+    this.game.stage.stageCounter = 2;
+    this.xPlayer = 0;
+    this.yPlayer = 50;
+    this.game.enemy.xEnemy = 600;
+    this.game.enemy.yEnemy = 400;
+    this.playerTarjet = 0;
   }
 
   // COLISION CON EL SOBRE
@@ -128,11 +137,9 @@ Player.prototype.colisions = function (){
     ){
       this.game.stop();
       this.game.stage.imgStage.src = "./imagenes/freedom.png";
-      
       this.game.clearscreen();
-      
       this.game.stage.drawStage(this);
-      
+      this.game.stage.stageCounter = 2;
       this.xPlayer = 0;
       this.yPlayer = 50;
       this.game.enemy.xEnemy = 600;
@@ -153,15 +160,16 @@ Player.prototype.colisions = function (){
   }
 
   // COLISION MONEY
-  this.game.scores.forEach(function(element){
+  this.game.scores.forEach(function(element, index){
     if (this.xPlayer < element.xScore + element.wScore && 
       element.xScore < this.xPlayer + this.wPlayer/2 &&
       this.yPlayer < element.yScore + element.hScore && 
       element.yScore < this.yPlayer + this.hPlayer/2
     ){
       this.game.globalScore += element.scoreValue;
-      return this.game.scores.splice(element, 1);
-
+      
+      return this.game.scores.splice(index, 1);
     }
+    
   }.bind(this));
 } 

@@ -17,12 +17,14 @@ Stage.prototype.drawStage = function(){
 
 Stage.prototype.stageControl = function(){
   if(this.stageCounter === 1){
-
     this.imgStage.src = "./imagenes/STAGE1.png";
-    
   }
   if(this.stageCounter === 2){
     this.imgStage.src = "./imagenes/instrucciones1.png";
   }
+  if(this.stageCounter === 4){
+    this.imgStage.src = "./imagenes/finfase1.png";
+  }
+  
 }
 

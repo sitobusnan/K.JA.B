@@ -85,9 +85,11 @@ Game.prototype.startStage = function(){
       if(e.keyCode === 32){
         this.stage.stageCounter++;
         this.clearscreen();
-        this.stage.drawStage();
+        
         if(this.stage.stageCounter === 3){
           this.startGame();
+        }else{
+          this.stage.drawStage();
         }
       }
     }.bind(this)
