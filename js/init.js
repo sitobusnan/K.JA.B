@@ -4,11 +4,11 @@ window.onload = function() {
     startGame();
   };
 
-  var game = new Game("kjab");
- 
-
+  
+  
+};
   function startGame(){
+    var game = new Game("kjab");
     
     game.startStage();
   }
-};

@@ -14,6 +14,8 @@ function Game(canvasId){
   this.globalScore = 0;
   this.marcador = document.getElementById("score");
   this.backGroundControl = 0;
+  this.moduleCounter = 0;
+  if(this.moduleCounter === 10000){this.moduleCounter = 500;}
 
 
 
@@ -93,14 +95,14 @@ Game.prototype.stopStart = function (){
   this.drawscreen();
   this.player.Keys();
   this.player.colisions();
-  this.coin.drawCoins();
-  this.coin.drawAlbanil();
+  
   this.scoreBoard();
   
-  
+  this.moduleCounter++;
+
   this.scores.forEach(function(element) { element.drawScore(); });
   
-  if (this.enemy.moduleCounter % 2500 === 0 && this.scoresCount < 15){
+  if (this.moduleCounter % 2500 === 0 && this.scoresCount < 15){
     this.scores.push(new Score(this));
     this.scoresCount ++;
   }
@@ -113,6 +115,7 @@ Game.prototype.startGame = function (){
 
 Game.prototype.clearscreen = function(){
   this.ctx.clearRect(0,0,this.xCanvasMax,this.yCanvasMax);
+  
 } 
 
 Game.prototype.drawscreen = function(){
@@ -122,6 +125,9 @@ Game.prototype.drawscreen = function(){
   
   this.enemy.drawEnemy();
   this.enemy.enemyMove();
+
+  this.coin.drawCoins();
+  this.coin.drawAlbanil();
 }
 
 Game.prototype.stop = function (){

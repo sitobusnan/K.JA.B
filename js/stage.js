@@ -1,19 +1,17 @@
 function Stage (game){
   this.game = game;
+  this.stageControl = 0;
 
   this.imgStage = new Image();
   this.imgStage.src = "./imagenes/logo.png";
 }
 
 Stage.prototype.drawStage = function(){
-    console.log(this.imgStage.src)
-    this.game.ctx.drawImage(this.imgStage ,0 ,0 , this.game.xCanvasMax, this.game.yCanvasMax);
+    this.imgStage.onload = function() {
+
+      this.game.ctx.drawImage(this.imgStage, 0, 0, this.game.xCanvasMax, this.game.yCanvasMax);
+    }.bind(this)
   
 
 }
 
-Stage.prototype.backControl = function(){
-  
-    this.imgStage.src = "./imagenes/instrucciones1.png";
-  
-}

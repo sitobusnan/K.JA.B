@@ -1,7 +1,7 @@
 function Background(game){
   this.game = game;
   this.img = new Image();
-  this.img.src = "./imagenes/background1.jpg";
+  this.img.src = "./imagenes/background1.png";
 }
 
 Background.prototype.drawBack = function (){

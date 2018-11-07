@@ -126,8 +126,18 @@ Player.prototype.colisions = function (){
       this.yPlayer < this.game.enemy.yEnemy + this.game.enemy.hEnemy/2 && 
       this.game.enemy.yEnemy < this.yPlayer + this.hPlayer/2
     ){
-     
       this.game.stop();
+      this.game.stage.imgStage.src = "./imagenes/freedom.png";
+      
+      this.game.clearscreen();
+      
+      this.game.stage.drawStage(this);
+      
+      this.xPlayer = 0;
+      this.yPlayer = 50;
+      this.game.enemy.xEnemy = 600;
+      this.game.enemy.yEnemy = 400;
+      this.playerTarjet = 0;
     }
   }
 

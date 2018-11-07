@@ -5,13 +5,13 @@ function Enemy(game) {
   this.wEnemy = 50;
   this.hEnemy = 50;
   this.enemySpeed = 2;
-  this.moduleCounter = 0;
+  
   this.enemyTarjet = 0;
 
   this.imgEnemy = new Image();
   this.imgEnemy.src = "./imagenes/enemy3.png";
 
-  if(this.moduleCounter === 10000){this.moduleCounter = 500;}
+  
 }
 
 Enemy.prototype.drawEnemy = function() {
@@ -25,8 +25,8 @@ Enemy.prototype.drawEnemy = function() {
 };
 
 Enemy.prototype.enemyMove = function() {
-  this.moduleCounter++;
-  if (this.moduleCounter % 5 === 0) {
+  
+  if (this.game.moduleCounter % 5 === 0) {
     if (this.enemyTarjet === 0) {
       if (
         this.xEnemy != this.game.player.xPlayer &&

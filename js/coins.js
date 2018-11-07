@@ -49,7 +49,7 @@ Coins.prototype.drawAlbanil = function (){
   if(this.game.coin.countActa > 1 && this.game.enemy.yEnemy > 500){
     
     this.game.ctx.drawImage(this.albanil, this.xAlbanil,this.yAlbanil)
-    if (this.game.enemy.moduleCounter % 5 === 0 && this.xAlbanil < this.game.enemy.xEnemy - this.wAlbanil){
+    if (this.game.moduleCounter % 5 === 0 && this.xAlbanil < this.game.enemy.xEnemy - this.wAlbanil){
       this.xAlbanil += this.game.enemy.enemySpeed;
     }
   }
