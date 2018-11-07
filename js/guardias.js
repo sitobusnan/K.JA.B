@@ -1,7 +1,7 @@
 function Guardias(game, yGuard){
   this.game = game;
-  this.xGuardMax = 750;
-  this.xGuardMin = 100;
+  this.xGuardMax = 850;
+  this.xGuardMin = 0;
   this.xGuard = Math.floor(Math.random() * (this.xGuardMax - this.xGuardMin)+ this.xGuardMin );
   this.yGuard = yGuard;
   this.wGuard = 50;

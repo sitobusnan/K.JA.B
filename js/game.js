@@ -94,6 +94,8 @@ Game.prototype.startStage = function(){
           }
           if(this.wins === 1){
             this.guards = [new Guardias(this,150), new Guardias(this,350), new Guardias(this,550)];
+           
+            
           }
           this.startGame();
         }else{
@@ -112,6 +114,7 @@ Game.prototype.stopStart = function (){
   this.player.colisions();
   this.scoreBoard();
   
+    
   this.moduleCounter++;
 
   this.scores.forEach(function(element) { element.drawScore(); });
@@ -154,6 +157,7 @@ Game.prototype.drawscreen = function(){
 
   this.coin.drawCoins();
   this.coin.drawAlbanil();
+  this.coin.drawPuchi();
 }
 
 Game.prototype.stop = function (){

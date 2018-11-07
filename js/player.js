@@ -177,6 +177,17 @@ Player.prototype.colisions = function (){
       
       return this.game.scores.splice(index, 1);
     }
-    
   }.bind(this));
+  
+  // COLISION BANDERITA
+  if (this.game.coin.countBandera === 1 &&
+    this.xPlayer < this.game.coin.xBandera + this.game.coin.wBandera && 
+    this.game.coin.xBandera < this.xPlayer + this.wPlayer/2 &&
+    this.yPlayer < this.game.coin.yBandera + this.game.coin.hBandera && 
+    this.game.coin.yBandera < this.yPlayer + this.hPlayer/2
+  ){
+    this.game.coin.countBandera++;
+    
+    
+  }
 } 
