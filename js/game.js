@@ -93,7 +93,7 @@ Game.prototype.startStage = function(){
             this.guards = [new Guardias(this,150), new Guardias(this,350), new Guardias(this,550)];
           }
           this.startGame();
-
+          $("#marcador").removeClass("hide");
 
         }else{
           this.stage.drawStage();

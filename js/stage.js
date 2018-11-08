@@ -46,7 +46,10 @@ Stage.prototype.stageControl = function(){
   }
   if(this.stageCounter === 10){
     this.imgStage.src = "./imagenes/credits.png";
+    $("#marcador").addClass("hide")
   }
+
+  
   
 }
 

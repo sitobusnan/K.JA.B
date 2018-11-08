@@ -28,9 +28,17 @@ body{
   font-weight: 700;
   width: 800px;
   display: flex;
+  
 }
 
 .canv{
-  
+  margin: auto;
+}
+
+.hide{
+  visibility: hidden;
+}
+
+#score{
   margin: auto;
 }
