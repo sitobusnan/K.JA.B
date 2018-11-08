@@ -24,6 +24,13 @@ function Game(canvasId){
   this.moduleCounter = 0;
   if(this.moduleCounter === 10000){this.moduleCounter = 500;}
 
+  this.booster = new Audio("./audios/crashbandicot.wav");
+  this.header = new Audio("./audios/cabecera.mp3");
+  this.gamer = new Audio("./audios/game.mp3");
+  this.claps = new Audio("./audios/aplausos.mp3");
+  this.cash = new Audio("./audios/cash.mp3");
+  this.end = new Audio("./audios/end.mp3");
+  this.mf = new Audio("./audios/mf.mp3");
 
   //todo: consider adding a KeyboardManager object
   //todo: consider adding a KeyboardCodesConfig object as per KeyboardCodesConfig.LEFT
@@ -62,7 +69,7 @@ function Game(canvasId){
 }
 
 Game.prototype.startStage = function(){
-  
+    this.header.play();
     this.clearscreen();
     this.stage.drawStage();
 
@@ -75,7 +82,8 @@ Game.prototype.startStage = function(){
 
         // VUELTA AL JUEGO
         if(this.stage.stageCounter === 3 || this.stage.stageCounter === 7){
-          
+          this.header.pause();
+          this.gamer.play();
           // CREACION DE ENEMIGOS SEGÚN LA FASE
           if(this.wins === 0){
             this.enemy = new Enemy(this);

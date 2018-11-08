@@ -26,6 +26,7 @@ Stage.prototype.stageControl = function(){
   }
   if(this.stageCounter === 4){
     this.imgStage.src = "./imagenes/finfase1.png";
+    this.game.claps.play();
   }
   if(this.stageCounter === 5){
     this.imgStage.src = "./imagenes/STAGE2.png";
@@ -36,9 +37,12 @@ Stage.prototype.stageControl = function(){
 
   if(this.stageCounter === 8){
     this.imgStage.src = "./imagenes/finfase2.png";
+    this.game.claps.play();
   }
   if(this.stageCounter === 9){
     this.imgStage.src = "./imagenes/ati.png";
+    this.game.gamer.pause();
+    this.game.end.play();
   }
   
 }

@@ -137,6 +137,7 @@ Player.prototype.colisions = function (){
     this.game.coin.yLetter < this.yPlayer + this.hPlayer/2
   ){
     this.playerTarjet = 1;
+    this.game.cash.play();
   }
 
   // COLISION CON ENEMY
@@ -149,6 +150,7 @@ Player.prototype.colisions = function (){
         this.game.enemy.yEnemy < this.yPlayer + this.hPlayer/2
       ){
         this.game.stop();
+        this.game.mf.play();
         this.game.stage.imgStage.src = "./imagenes/freedom.png";
         this.game.clearscreen();
         this.game.stage.drawStage(this);
@@ -173,6 +175,8 @@ Player.prototype.colisions = function (){
   ){
     this.game.enemy.enemyTarjet = 1;
     this.game.coin.countActa++;
+    
+    this.game.booster.play();
   }
 
   // COLISION SCORES
@@ -183,7 +187,7 @@ Player.prototype.colisions = function (){
       element.yScore < this.yPlayer + this.hPlayer/2
     ){
       this.game.globalScore += element.scoreValue;
-      
+      this.game.cash.play();
       return this.game.scores.splice(index, 1);
     }
   }.bind(this));
@@ -197,6 +201,7 @@ Player.prototype.colisions = function (){
   ){
     this.game.coin.countBandera++;
     
+    this.game.booster.play();
     
   }
 
@@ -209,6 +214,7 @@ Player.prototype.colisions = function (){
       element.yGuard < this.yPlayer + this.hPlayer/2){
 
         this.game.stop();
+        this.game.mf.play();
         this.game.stage.imgStage.src = "./imagenes/freedom2.png";
         this.game.clearscreen();
         this.game.stage.drawStage(this);
