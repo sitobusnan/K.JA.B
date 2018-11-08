@@ -27,6 +27,7 @@ Player.prototype.drawPlayer = function() {
   
 };
 
+// MOVIMIENTO DEL JUGADOR
 Player.prototype.Keys = function() {
   
   

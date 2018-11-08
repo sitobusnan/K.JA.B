@@ -1,7 +1,5 @@
 function Coins (game){
   this.game = game;
-  this.xCoin = 350;
-  this.yCoin = 200;
   
   // LETTER
   this.wLetter = 43;
@@ -50,7 +48,7 @@ function Coins (game){
   this.speedPuchi = 1;
   
 }
-
+// DISPOSICION DE ITEMS
 Coins.prototype.drawCoins = function(){
   if(this.game.player.playerTarjet === 0){
     this.game.ctx.drawImage(this.letter, this.xLetter, this.yLetter);
@@ -71,6 +69,7 @@ Coins.prototype.drawCoins = function(){
   }
 }
 
+// EFECTO DEL ACTA
 Coins.prototype.drawAlbanil = function (){
   
   if(this.game.coin.countActa > 1 && this.game.enemy.yEnemy > 500){
@@ -83,6 +82,7 @@ Coins.prototype.drawAlbanil = function (){
 
 }
 
+//EFECTO DE LA BANDERA
 Coins.prototype.drawPuchi = function (){
   
   if(this.countBandera > 1 && this.game.guards[1].xGuard > 600 && this.game.guards[1].speedGuard < 0 ){
