@@ -25,6 +25,19 @@ Stage.prototype.stageControl = function(){
   if(this.stageCounter === 4){
     this.imgStage.src = "./imagenes/finfase1.png";
   }
+  if(this.stageCounter === 5){
+    this.imgStage.src = "./imagenes/STAGE2.png";
+  }
+  if(this.stageCounter === 6){
+    this.imgStage.src = "./imagenes/instrucciones2.png";
+  }
+
+  if(this.stageCounter === 8){
+    this.imgStage.src = "./imagenes/finfase2.png";
+  }
+  if(this.stageCounter === 9){
+    this.imgStage.src = "./imagenes/ati.png";
+  }
   
 }
 

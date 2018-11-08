@@ -10,7 +10,7 @@ function Game(canvasId){
   this.stage = new Stage(this);
   this.coin = new Coins(this);
   this.scores = [new Score(this)];
-  // this.guards = [new Guardias(this,200), new Guardias(this,400), new Guardias(this,600)];
+  //this.guards = [new Guardias(this,200), new Guardias(this,400), new Guardias(this,600)];
   this.scoresCount = 0;
   this.wins = 0;
   this.globalScore = 0;
@@ -88,7 +88,7 @@ Game.prototype.startStage = function(){
         this.stage.stageCounter++;
         this.clearscreen();
         
-        if(this.stage.stageCounter === 3){
+        if(this.stage.stageCounter === 3 || this.stage.stageCounter === 7){
           if(this.wins === 0){
             this.enemy = new Enemy(this);
           }
