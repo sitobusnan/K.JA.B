@@ -44,6 +44,9 @@ Stage.prototype.stageControl = function(){
     this.game.gamer.pause();
     this.game.end.play();
   }
+  if(this.stageCounter === 10){
+    this.imgStage.src = "./imagenes/credits.png";
+  }
   
 }
 
