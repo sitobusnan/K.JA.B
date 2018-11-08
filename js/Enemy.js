@@ -4,7 +4,7 @@ function Enemy(game) {
   this.yEnemy = 400;
   this.wEnemy = 50;
   this.hEnemy = 50;
-  this.enemySpeed = 1;
+  this.enemySpeed = 2;
   
   this.enemyTarjet = 0;
 

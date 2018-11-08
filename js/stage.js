@@ -48,6 +48,9 @@ Stage.prototype.stageControl = function(){
     this.imgStage.src = "./imagenes/credits.png";
     $("#marcador").addClass("hide")
   }
+  if(this.stageCounter > 12){
+    window.location.reload();
+  }
 
   
   
