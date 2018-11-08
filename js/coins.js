@@ -95,8 +95,6 @@ Coins.prototype.drawPuchi = function (){
     if(this.xPuchi > this.game.guards[1].xGuard + 70){
       this.game.guards[1].speedGuard = 1;
       this.game.guards[1].xGuardMax = this.xPuchi;
-      
-      console.log(this.game.guards[1].xGuardMax)
     }
   }
 
