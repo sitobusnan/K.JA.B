@@ -48,6 +48,9 @@ function Coins (game){
   this.speedPuchi = 1;
   
 }
+
+//todo: consider renaming these methods Coins.draw instead of Coins.drawCoins
+//todo: make sure you understand where you want to put the business logic. now it is scattered across the board
 // DISPOSICION DE ITEMS
 Coins.prototype.drawCoins = function(){
   if(this.game.player.playerTarjet === 0){
@@ -69,6 +72,7 @@ Coins.prototype.drawCoins = function(){
   }
 }
 
+//todo: consider using Booster class with multiple strategies
 // EFECTO DEL ACTA
 Coins.prototype.drawAlbanil = function (){
   

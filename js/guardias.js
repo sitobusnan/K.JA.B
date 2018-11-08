@@ -20,6 +20,7 @@ Guardias.prototype.drawGuard = function(){
   
 }
 
+// MOVIMIENTO DE LOS GUARDIAS
 Guardias.prototype.moveGuard = function(){
   if(this.xGuard < this.xGuardMax && this.xGuard > this.xGuardMin){
     this.xGuard += this.speedGuard;

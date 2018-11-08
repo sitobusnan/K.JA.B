@@ -1,3 +1,5 @@
+//todo: consider separating Game business logic from Game screenplay
+//todo: consider adding a GameConfig object and avoid using hardcoded values as per example GameConfig.canvasWidth
 function Game(canvasId){
   this.canvas = document.getElementById(canvasId);
   this.ctx = this.canvas.getContext("2d");
@@ -23,7 +25,8 @@ function Game(canvasId){
   if(this.moduleCounter === 10000){this.moduleCounter = 500;}
 
 
-
+  //todo: consider adding a KeyboardManager object
+  //todo: consider adding a KeyboardCodesConfig object as per KeyboardCodesConfig.LEFT
   document.addEventListener('keydown', function (e) {
       e.preventDefault();
       if (e.keyCode === 37) {
@@ -64,7 +67,7 @@ Game.prototype.startStage = function(){
     this.stage.drawStage();
 
     window.onkeydown = function (e) {
-      
+        //todo: consider adding a KeyboardCodesConfig object as per KeyboardCodesConfig.LEFT
       if(e.keyCode === 32){
         this.stage.stageCounter++;
         this.clearscreen();
@@ -78,6 +81,7 @@ Game.prototype.startStage = function(){
             this.enemy = new Enemy(this);
           }
           if(this.wins === 1){
+            //todo: consider using the same language in your code always
             this.guards = [new Guardias(this,150), new Guardias(this,350), new Guardias(this,550)];
           }
           this.startGame();
@@ -148,6 +152,8 @@ Game.prototype.drawscreen = function(){
   this.coin.drawPuchi();
 }
 
+
+//todo: consider adding a ScoreManager class
 // ESCRITURA DEL MARCADOR
 Game.prototype.scoreBoard = function(){
   this.marcador.innerHTML = ` ${this.globalScore} €`;

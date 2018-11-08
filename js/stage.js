@@ -15,6 +15,8 @@ Stage.prototype.drawStage = function(){
     }.bind(this)
 }
 
+
+// CONTROLA QUE CARTEL SE MUESTRA
 Stage.prototype.stageControl = function(){
   if(this.stageCounter === 1){
     this.imgStage.src = "./imagenes/STAGE1.png";

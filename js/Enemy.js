@@ -23,7 +23,19 @@ Enemy.prototype.drawEnemy = function() {
     this.hEnemy
   );
 };
+//todo: consider adding a CollisionManager class
 
+//todo: consider removing duplications in the code, find patterns as you code
+// function sito(img, xspeed, yspeed) {
+//   this.imgEnemy.src = "./imagenes/enemy8.png";
+
+//   if (xspeed === true) this.xEnemy += this.enemySpeed
+//   else this.xEnemy -= this.enemySpeed
+
+//   if (yspeed === true) this.yEnemy += this.enemySpeed
+//   else this.xEnemy -= this.enemySpeed
+// }
+// MOVIMIENTO DEL ENEMY
 Enemy.prototype.enemyMove = function() {
   
   if (this.game.moduleCounter % 5 === 0) {

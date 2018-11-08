@@ -175,7 +175,7 @@ Player.prototype.colisions = function (){
     this.game.coin.countActa++;
   }
 
-  // COLISION MONEY
+  // COLISION SCORES
   this.game.scores.forEach(function(element, index){
     if (this.xPlayer < element.xScore + element.wScore && 
       element.xScore < this.xPlayer + this.wPlayer/2 &&
